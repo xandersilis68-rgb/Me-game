@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Me-game — Fun Update!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Me-game <span class="emoji">⚽</span></h1>
+    <div class="controls">
+      <label class="control-inline">
+        Search
+        <input id="search-input" type="search" placeholder="Search players or positions" />
+      </label>
+      <label class="control-inline">
+        Position
+        <select id="position-filter"></select>
+      </label>
+      <label class="control-inline">
+        Team
+        <select id="team-filter"></select>
+        <img id="filter-flag" alt="" />
+      </label>
+      <button id="reset-btn" class="small">Reset</button>
+    </div>
+    <div class="scoreboard">
+      <span id="points" class="score">Points: 0</span>
+      <span id="money" class="score">Money: $0</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="left-column">
+      <h2>Players</h2>
+      <p class="muted">Drag players into your roster, or click Own / Select / Assign.<br>
+        <span class="fun-tip">💸 Owning costs $10, selecting costs $5 — but you can lose money and points!</span>
+      </p>
+      <div id="players-container" class="grid" aria-live="polite"></div>
+    </section>
+
+    <aside id="right-column">
+      <h2>Your National Team</h2>
+      <div class="team-header">
+        <select id="team-select"></select>
+        <img id="team-flag" alt="team flag" />
+      </div>
+      <div id="roster" class="roster" aria-label="Team roster" tabindex="0">
+        <p class="muted">Drop players here</p>
+      </div>
+      <div class="roster-actions">
+        <button id="save-btn" class="primary small">Save (local)</button>
+        <button id="export-btn" class="small">Export JSON</button>
+        <button id="import-btn" class="small">Import JSON</button>
+      </div>
+      <div class="info-block">
+        <h3>Rules</h3>
+        <ul>
+          <li>Each player can be owned once and selected once.</li>
+          <li>Selection is unique: only one player can be "selected" at a time.</li>
+          <li>Drag players into roster to assign to the current national team.</li>
+          <li>Lose points/money by clicking "Lose Point" or "Lose $10"!</li>
+        </ul>
+        <button id="lose-point-btn" class="danger small">Lose Point</button>
+        <button id="lose-money-btn" class="danger small">Lose $10</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <small>Fun update! Automatic images, money/points, playful feedback. <span class="emoji">🎉</span></small>
+  </footer>
+  <div id="feedback" class="feedback"></div>
+  <script src="script.js" defer></script>
+</body>
+</html>
